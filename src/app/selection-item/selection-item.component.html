@@ -1,0 +1,21 @@
+<div class="selection-item border-1 border-300 border-round p-3 surface-card h-full">
+  <div class="flex flex-column h-full">
+    <div class="flex flex-row vertical-align-top h-full">
+      <p-avatar [label]="dataset.author.charAt(0)" size="xlarge" styleClass="mr-4 bg-blue-500 text-white"
+                shape="circle"></p-avatar>
+      <div class="flex flex-column">
+        <p class="text-4xl mt-0 mb-0">{{dataset.author}}</p>
+        <p class="mt-2 flex-auto">{{dataset.title}}</p>
+      </div>
+    </div>
+    <div class="flex flex-row ml-2 align-items-end">
+      <p-tag [value]="statusString()"  styleClass="bg-gray-200 text-blue-500 px-3 py-2"></p-tag>
+    </div>
+    <div class="flex flex-row mt-2">
+      <button pButton type="button" class="p-button-outlined p-2 m-2 flex-auto" label="View details" icon="pi pi-search"
+              (click)="viewDataset()"></button>
+      <button pButton type="button" class="p-button-outlined p-2 m-2 flex-auto" [label]="assignButtonText()"
+              icon="pi pi-user-plus" (click)="assignToggle()"></button>
+    </div>
+  </div>
+</div>

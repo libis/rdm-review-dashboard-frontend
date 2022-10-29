@@ -3,11 +3,39 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dashboard-frontend": {
+    "review-dashboard": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:application": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:ng-new": {
+          "skipTests": true
+        },
+        "@schematics/angular:resolver": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
         }
       },
       "root": "",
@@ -17,7 +45,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/dashboard-frontend",
+            "outputPath": "dist/review-dashboard",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -69,10 +97,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "dashboard-frontend:build:production"
+              "browserTarget": "review-dashboard:build:production"
             },
             "development": {
-              "browserTarget": "dashboard-frontend:build:development"
+              "browserTarget": "review-dashboard:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +108,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dashboard-frontend:build"
+            "browserTarget": "review-dashboard:build"
           }
         },
         "test": {
@@ -98,7 +126,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node-modules/fakerator/dist/fakerator.js"
+            ]
           }
         }
       }

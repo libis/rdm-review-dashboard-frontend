@@ -1,0 +1,20 @@
+<div class="grid surface-200">
+  <div class="border-400 border-1 absolute top-50 z-3 px-10 lg:inline hidden"
+       style="height: 2px; left: 10%; width: 80%;"></div>
+  <div class="lg:col-3 md:col-6 sm:col-12 col-12 z-4">
+    <app-progress-item name="Selection" description="Select a dataset to review" icon="pi pi-question"
+                       [enabled]="true" [active]="false" linkTo="/select"></app-progress-item>
+  </div>
+  <div class="lg:col-3 md:col-6 sm:col-12 col-12 z-4">
+    <app-progress-item name="Details" description="View details of review" icon="pi pi-question"
+                       [enabled]="true" [active]="true" linkTo="/detail"></app-progress-item>
+  </div>
+  <div class="lg:col-3 md:col-6 sm:col-12 col-12 z-4">
+    <app-progress-item name="Feedback" description="Write feedback for creator"
+                       icon="pi pi-question" [enabled]="false" [active]="false" linkTo="/review"></app-progress-item>
+  </div>
+  <div class="lg:col-3 md:col-6 sm:col-12 col-12 z-4">
+    <app-progress-item name="Publish/Return" description="Publish or return dataset"
+                       icon="pi pi-question" [enabled]="false" [active]="false" linkTo="/publish"></app-progress-item>
+  </div>
+</div>

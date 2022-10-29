@@ -1,0 +1,100 @@
+<div id="detail" class="selection-item border-1 border-300 border-round p-3 mt-4 surface-card">
+  <div class="flex flex-column">
+    <p class="text-4xl mb-0">{{(dataset$ | async)?.title}}</p>
+    <div class="grid">
+      <p class="col-3">{{(dataset$ | async)?.doi}}</p>
+      <p class="col-2">Version: 1.0</p>
+      <p class="col-2">size: 59 GB</p>
+    </div>
+    <div class="flex flex-row">
+      <p-avatar [label]="(avatarLabel() | async) || ''" size="xlarge" styleClass="mr-4 bg-blue-500 text-white" shape="circle"></p-avatar>
+      <div class="flex flex-column flex-auto">
+        <p class="text-xl mt-0 mb-0">{{(dataset$ | async)?.author}}</p>
+
+      </div>
+    </div>
+    <div class="flex flex-row">
+      <p-tag [value]="(statusString() | async) || ''" styleClass="bg-gray-300 text-blue-500"></p-tag>
+    </div>
+    <div class="flex flex-row mt-2">
+      <button pButton type="button" class="p-button-outlined p-2 m-2 flex-auto" [label]="(assignButtonText() | async) || ''" icon="pi pi-user-plus"></button>
+    </div>
+  </div>
+</div>
+
+<div class="warning-box border-1 border-300 border-round p-3 mt-2 surface-card">
+  <h1>Warnings</h1>
+  <p>Keep the following warnings in mind before approving this dataset</p>
+  <div class="warning-item grid border-1 border-300 border-round p-3 mt-2 surface-card">
+    <p-tag class="col-1" styleClass="text-lg" severity="danger" value="Storage"></p-tag>
+    <p>The storage quotum of 50 GB has been reached by the first KU Leuven author with an ORCID ID.</p>
+  </div>
+</div>
+
+<div class="review-box border-1 border-300 border-round p-3 mt-2 surface-card">
+  <h1>Review checklist</h1>
+  <p>Check the following elements before approving a dataset. (authomated checks are applied in grey)</p>
+  <div class="flex flex-row my-2">
+    <div class="flex flex-column align-items-center mx-4">
+      <p-avatar shape="circle" label="F" styleClass="bg-blue-500 text-white"></p-avatar>
+      <div class="h-full border-1 w-1 border-blue-500 align-content-center"></div>
+    </div>
+    <div class="checklist border-1 border-300 border-round w-full mr-4 px-4 py-2">
+      <h2>Files</h2>
+      <div class="field-checkbox">
+        <p-checkbox id="readme"></p-checkbox>
+        <label for="readme">A README.txt file is present</label>
+      </div>
+      <div class="field-checkbox">
+        <p-checkbox id="access-rights"></p-checkbox>
+        <label for="access-rights">File access is in line with the <em>Access rights</em> field in the metadata</label>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-row my-2">
+    <div class="flex flex-column align-items-center mx-4">
+      <p-avatar shape="circle" label="M" styleClass="bg-blue-500 text-white"></p-avatar>
+      <div class="h-full border-1 w-1 border-blue-500 align-content-center"></div>
+    </div>
+    <div class="checklist border-1 border-300 border-round w-full mr-4 px-4 py-2">
+      <h2>Metadata</h2>
+      <div class="field-checkbox">
+        <p-checkbox id="orcid"></p-checkbox>
+        <label for="orcid">At least one KU Leuven author has an ORCID ID filled in</label>
+      </div>
+      <div class="field-checkbox">
+        <p-checkbox id="publication"></p-checkbox>
+        <label for="publication">The (optional) related publication has a DOI or Lirias Source ID filled in</label>
+      </div>
+      <div class="field-checkbox">
+        <p-checkbox id="format"></p-checkbox>
+        <label for="format">Technical format is in the correct format</label>
+      </div>
+      <div class="field-checkbox">
+        <p-checkbox id="restrictions"></p-checkbox>
+        <label for="restrictions">Access rights are in line with file restrictions</label>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-row my-2">
+    <div class="flex flex-column align-items-center mx-4">
+      <p-avatar shape="circle" label="T" styleClass="bg-blue-500 text-white"></p-avatar>
+      <div class="h-full border-1 w-1 border-blue-500 align-content-center"></div>
+    </div>
+    <div class="checklist border-1 border-300 border-round w-full mr-4 px-4 py-2">
+      <h2>Terms</h2>
+      <div class="field-checkbox">
+        <p-checkbox id="license"></p-checkbox>
+        <label for="license">A license has been selected</label>
+      </div>
+      <div class="field-checkbox">
+        <p-checkbox id="custom-license"></p-checkbox>
+        <label for="custom-license">If the license is <em>Custom KU Leuven</em>, all files should be restricted or closed</label>
+      </div>
+      <div class="field-checkbox">
+        <p-checkbox id="custom-terms"></p-checkbox>
+        <label for="custom-terms">If the license is <em>Custom Dataset Terms</em>, the Terms of Use field needs to be filled in</label>
+      </div>
+    </div>
+  </div>
+</div>
